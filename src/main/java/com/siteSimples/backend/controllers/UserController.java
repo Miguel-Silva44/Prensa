@@ -9,36 +9,36 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.siteSimples.backend.model.User;
+import com.siteSimples.backend.model.Users;
 import com.siteSimples.backend.service.IServices;
 import com.siteSimples.backend.service.UserServices;
 
 @RestController
-@RequestMapping("/api/users")
+@RequestMapping("/api/user")
 @CrossOrigin(origins = "http://localhost:3000")
 public class UserController 
-	extends AControllers<User, Long> {
+	extends AControllers<Users, Long> {
 
 	@Autowired
 	private UserServices userService;
 	
 	@Override
-	IServices<User, Long> getService() {
+	IServices<Users, Long> getService() {
 		return this.userService;
 	}
 
 	@PutMapping("/{id}")
 	@Override
-	public ResponseEntity<User> update(Long id, User user) {
-		Optional<User> optionalUser = (Optional<User>) userService.getById(id);
-		User userDetails = user;
+	public ResponseEntity<Users> update(Long id, Users user) {
+		Optional<Users> optionalUser = (Optional<Users>) userService.getById(id);
+		Users userDetails = user;
 		if (optionalUser.isPresent()) {
-			User existingUser = optionalUser.get();
+			Users existingUser = optionalUser.get();
 			existingUser.setName(userDetails.getName());
 			existingUser.setAddresses(userDetails.getAddresses());
 			existingUser.setEmail(userDetails.getEmail());
 			existingUser.setPhone(userDetails.getPhone());
-			User updatedUser = userService.create(existingUser);
+			Users updatedUser = userService.create(existingUser);
 			return ResponseEntity.ok(updatedUser);
 		} else {
 			return ResponseEntity.notFound().build();

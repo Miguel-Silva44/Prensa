@@ -1,21 +1,22 @@
 package com.siteSimples.backend.model;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
 import jakarta.persistence.MapsId;
 import jakarta.persistence.OneToOne;
+import jakarta.persistence.PrimaryKeyJoinColumn;
 import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "credit_cards")
 public class CreditCard  implements EntityModel {
 
-    private static final long serialVersionUID = -987543210987654321L;
+	private static final long serialVersionUID = 2456318455867989739L;
 
-    public CreditCard() {
+	public CreditCard() {
     	
     }
 
@@ -23,14 +24,13 @@ public class CreditCard  implements EntityModel {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     
-    @OneToOne
-    @MapsId
-    @JoinColumn(name = "id")
-    private User usuario;
-
+    @Column(nullable = false)
     private String cardNumber;
+    @Column(nullable = false)
     private String cardHolderName;
+    @Column(nullable = false)
     private String expirationDate;
+    @Column(nullable = false)
     private String securityCode;
 
     public Long getId() {

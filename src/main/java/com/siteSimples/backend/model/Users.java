@@ -1,5 +1,6 @@
 package com.siteSimples.backend.model;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -8,24 +9,31 @@ import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "users")
-public class User implements EntityModel{
-	
+public class Users implements EntityModel {
+
 	private static final long serialVersionUID = -830379326473255556L;
 
-	public User() {
+	public Users() {
 
 	}
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
+	
+	@Column(nullable = false)
 	private String name;
+	
+	@Column(nullable = false)
 	private String email;
+	
+	@Column(nullable = false)
 	private String phone;
+	
+	@Column(nullable = false)
 	private String address;
-//	@OneToOne
-//	private CreditCard creditCard;
 
-    public String getAddresses() {
+	public String getAddresses() {
 		return address;
 	}
 
@@ -64,13 +72,5 @@ public class User implements EntityModel{
 	public void setPhone(String phone) {
 		this.phone = phone;
 	}
-
-//	public CreditCard getCreditCard() {
-//		return creditCard;
-//	}
-//
-//	public void setCreditCard(CreditCard creditCard) {
-//		this.creditCard = creditCard;
-//	}
 
 }

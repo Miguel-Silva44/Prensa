@@ -1,5 +1,6 @@
 package com.siteSimples.backend.model;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -7,16 +8,19 @@ import jakarta.persistence.Id;
 
 @Entity(name = "products")
 public class Product implements EntityModel {
+	
+	private static final long serialVersionUID = -3043166190250194126L;
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-
+	@Column(nullable = false)
 	private String nome;
-
+	@Column(nullable = false)
 	private String descricao;
-
+	@Column(nullable = false)
 	private Double preco;
-
+	@Column(nullable = false)
 	private Integer quantidadeEmEstoque;
 
 	public Product() {
