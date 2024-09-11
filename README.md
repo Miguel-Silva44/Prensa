@@ -5,6 +5,7 @@
 
 - Cole o link em seu browser: http://localhost:8080/swagger-ui/index.html
 
-![image](https://github.com/user-attachments/assets/71f3ca52-e5a7-4ece-bd84-16828783e894)
+![image](https://github.com/user-attachments/assets/aaf659d3-f967-4cc3-8e21-fca362212fac)
+
     
     
